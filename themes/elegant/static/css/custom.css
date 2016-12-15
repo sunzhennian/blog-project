@@ -1,0 +1,111 @@
+body {
+    background-color: #f6f6f6;
+    font-family: 'Microsoft YaHei', Tahoma, 'PT Serif', Georgia, Times, 'Times New Roman', Serif;
+    text-shadow: 1px 1px 3px rgba(50, 50, 50, 0.15);
+}
+.article-content {
+    font-family: 'Microsoft YaHei', 'PT Serif', Georgia, 'Times New Roman', Times, Serif;
+    text-align: left;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Microsoft YaHei', Baskerville, Garamond, Georgia, 'DejaVu Serif', 'Times New Roman', Times, Serif;
+}
+div#contents p.topic-title.first {
+    display: none;
+}
+div.math {
+    overflow: auto;
+}
+div.figure img {
+    width: inherit;
+}
+div.figure p.caption {
+    margin: 5px 1.5em 5px 1.5em;
+}
+.article-content img {
+    border: 0px;
+    padding: 0px;
+}
+object[type="image/svg+xml"] {
+    max-width: 100%;
+}
+div.highcharts {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#table-of-contents {
+    font-size: 9pt;
+    position: fixed;
+    top: 4em;
+    left: 3em;
+    border-width: 0 0 1px 1px;
+    /* ensure doesn't flow off the screen when expanded */
+    max-height: 80%;
+    overflow-y: auto;
+    z-index: 200;
+
+}
+
+#table-of-contents h2 {
+    font-size: 10pt;
+    font-weight: bold;
+    padding: 0.05em 0.5em 0.5em;
+    border-bottom: none;
+}
+
+#table-of-contents ul {
+    margin-left: 14pt;
+    margin-bottom: 2pt;
+    padding: 0
+}
+
+#table-of-contents li {
+    padding: 0;
+    margin: 1px;
+    max-width: 350px;
+}
+
+
+#table-of-contents ul>:first-child {
+    color: blue;
+}
+
+#table-of-contents #text-table-of-contents {
+    display: none;
+    text-align: left;
+}
+
+#table-of-contents:hover #text-table-of-contents {
+    display: block;
+    padding: 0.5em;
+    margin-top: -1.5em;
+}
+#table-of-contents .tag, #table-of-contents .todo, #table-of-contents .done {
+    display: none;
+}
+
+#gotop{
+  display:block;
+  width:36px;
+  height:36px;
+  position:fixed;
+  bottom:40px;
+  right:30px;
+  border-radius:7px;
+  text-decoration:none;
+  display:none;
+  background-color:#999999;
+}
+#gotop span{
+  display:block;
+  color:#dddddd;
+}
+#gotop span:hover{
+  color:#cccccc;
+}
+#gotop span{
+  font-size:24px;
+  text-align:center;
+}
