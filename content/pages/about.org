@@ -1,0 +1,122 @@
+#+TITLE: About Me
+#+DATE:  2016-12-16
+#+AUTHOR: sunzn
+#+EMAIL: sunzn@sunzn-desktop
+#+LANGUAGE: en
+#+OPTIONS: num:nil  toc:nil
+
+
+
+
+* Sun Zhennian
+Phone: +86-139-1129-4724
+
+Email: sunzhennian@gmail.com
+
+Birthday: 1985.03.24
+
+URL: http://sunzhennian.github.io/
+* EDUCATION
+- /09/2007 ~ 04/2010/
+  - Beijing University of Posts and Telecommunications (BUPT) \nbsp \nbsp \nbsp \nbsp *Master*
+- /09/2003 ~ 07/2007/
+  - Beijing University of Posts and Telecommunications (BUPT)   \nbsp \nbsp \nbsp \nbsp  *Bachelor*
+* WORKING EXPERIENCE
+- /04/2010-present/  \nbsp \nbsp \nbsp \nbsp *NEC Laboratories China*
+  - /08-2014-present/   \nbsp \nbsp \nbsp \nbsp   /Low Complexity EBB for AAS/
+    - Developed the 3D-MIMO channel model and finished the calibration of the 3D-MIMO in 3GPP including Phase 1 and Phase2
+    - [TODO.
+  - /04-2014-07-2014/   \nbsp \nbsp \nbsp \nbsp   /Interference Mitigation for Cross-subframe Scenario/
+    - Developed the system level simulator for cross-subframe scenario
+    - Investigate the algorithms for interference mitigation of cross-subframe interference
+    - Evaluated the performance of the corss-subframe interference mitigation(CSIM) algorithms
+    - Finalized the reports of CSIM and support the development of the algorithms in the products
+  - /01-2014-03-2014/   \nbsp \nbsp \nbsp \nbsp   /Low Cost & Enhanced Coverage MTC UE for LTE/
+    - Research on the uplink PUSCH coverage enhanced coverage
+  - /09/2012-12/2013/       \nbsp \nbsp \nbsp \nbsp   /TDD-FDD carrier aggregation/
+    - Research on the physical layer aspects of TDD-FDD carrier aggregation, including the PUCCH transmission and HARQ feedback for PDSCH and PUSCH.
+  - /07/2013-09/2013/      \nbsp \nbsp \nbsp \nbsp   /AAS coexistence study (joint project with NEC-Japan)/
+    - Developed the simulator for AAS coexistence study
+    - Evaluated the performance of AAS coexistence scenarios, including the coexistence of vertical cell splitting AAS, horizontal cell splitting ASS and the legacy antenna. Evaluated performance of the downlink ACLR and uplink in-band blocking in AAS coexistence scenarios.
+  - /04/2010-09/2012/      \nbsp \nbsp \nbsp \nbsp   /TD-LTE project (joint project with NEC-Japan)/
+    - Evaluated the performance of single layer beamforming, dual-layer beamforming, 2-layer MU-MIMO and 4-layer MU-MIMO using system level simulator
+    - low complexity algorithm of beamforming, the method of CQI modification
+    - the no-ideal assumptions(channel estimation error of CRS，SRS and DMRS and the antenna calibration error)
+    - low complexity scheduling algorithm of MU-MIMO(including 2-layer MU-MIMO and 4-layer MU-MIMO)
+    - Worked for the joint project with NEC-Japan and WRI, responsible for the simulation issues and provided some parameters which will be used in the LTE trial
+    - Optimization of system level simulator，implemented the multi-thread to speed up the simulator
+- /06/2009-04/2010/    \nbsp \nbsp \nbsp \nbsp   *NEC Laboratories China*   \nbsp \nbsp \nbsp \nbsp *Intern(full time)*
+  - LTE system level simulator development based on LTE Rel.9，finished all the calibrations(1A,1C and 2) required by 3GPP
+* PERSONAL SKILLS
+- Good technical background in wireless communications, solid knowledge of LTE and LTE-A
+- Familiar with physical layer protocols in LTE/LTE-A, follow the standards and key technologies for downlink MIMO and carrier aggregation
+- Proficient in C++-based system-level simulation platform development with rich simulation experiences. Familiar with matlab, Python and Linux.
+- Strong study ability and creativity.
+* OUTPUTS
+- PATENTS:
+  1. Z. Sun , G. Wang and M. Lei , “METHOD AND APPARATUS FOR DETERMINING HARQ TIMING IN COMMUNICATION SYSTEMS”,PCT/CN2013/073335, 2013/3/28  [ Standard essential patent ]
+  2. Z. Sun, G. Wang, Atsushi NAKATA and Alberto Suarez , “METHOD AND APPARATUS FOR MITIGATING INTERFERENCE AND ASSOCIATED COMPUTER-READABLE STORAGE MEDIUM AND COMPUTER PROGRAM PRODUCT”,PCT/CN2014/086147, 2014/9/9
+  3. Z. Sun , G. Wang , “METHOD AND APPARATUS FOR DATA TRANSMISSION IN A WIRELESS COMMUNICATION SYSTEM”,PCT/CN2015/075454, 2015/3/31    Standard essential patent ]
+  4. Z. Sun and G. Wang , “METHOD AND APPARATUS FOR DATA TRANSMISSION IN A WIRELESS COMMUNICATION SYSTEM”,PCT/CN2015/075457, 2015/3/31
+  5. Z. Sun, C. Jiang, G. Wang, P. Chen, S. Han and C. Yang, “METHOD AND APPARATUS FOR PERFORMING BEAMFORMING”, PCT/CN2015/084097,2015/7/15
+  6. Z. Sun, C. Jiang, Y. Gao and G. Wang, “METHOD AND APPARATUS FOR PERFORMING CARRIER AGGREGATION FOR 5G RAT”, PCT/CN2016/073223,2016/02/08
+  7. C. Jiang, Z. Sun and G. Wang, “METHOD AND APPARATUS OF LOW COMPLEXITY BEAMFORMING BASED EBB FOR FD-MIMO”, PCT/CN2015/08xxxx, 2014/7/15
+  8. G. Wang, Z. Sun and M. Lei, “METHOD AND APPARATUS FOR SCHEDULING DOWNLINK TRANSMISSION”, PCT/CN2010/002103,2010/12/20
+  9. Y. Zhang , Z. Sun , G. Wang and M. Lei , “METHOD AND APPARATUS FOR LINK ADAPTATION IN PRECODED MIMO SYSTEMS”, PCT/CN2012/073237, 2012/3/29
+  10. D. Zhu , Z. Sun , Y. Zhang , G. Wang and M. Lei , 	“METHOD AND APPARATUS FOR REPORTING AND CANCELLING CROSS-SUBFRAME CO-CHANNEL INTERFERENCE”,	 PCT/CN2012/073152, 2012/3/27
+  11. D. Zhu , Z. Sun , YI Su , G. Wang and M. Lei , “METHOD AND APPARATUS FOR DYNAMICALLY ADJUSTING UPLINK-DOWNLINK CONFIGURATION”, PCT/CN2012/073296	,2012/3/30
+  12. D. Zhu , Z. Sun , Y. Zhang , G. Wang and M. Lei , 	“METHOD AND APPARATUS FOR REPORTING AND CANCELLING CROSS-SUBFRAME CO-CHANNEL INTERFERENCE”,	 PCT/CN2012/073146, 2012/3/27
+  13. D. Zhu , Z. Sun , YI Su , G. Wang and M. Lei , “METHOD AND APPARATUS FOR DYNAMIC DL-UL RECONFIGURATION IN TDD SYSTEM”, PCT/CN2012/073342, 2012/3/30
+  14. G. Wang , Z. Sun and M. Lei , “METHOD AND APPARATUS FOR ENHANCING COVERAGE”,  PCT/CN2012/081943, 2012/9/25
+  15. G. Wang , Z. Sun and M. Lei , “METHODS AND APPARATUSES FOR DATA TRANSMISSION IN A WIRELESS COMMUNICATION SYSTEM”,PCT/CN2013/073472, 2013/3/29
+  16. D. Zhu , Z. Sun, J. Cao and M. Lei , “METHODS AND APPARATUSES FOR CCI MITIGATION AND CHANNEL STATE CONDITION MEASURING AND REPORTING AND A NETWORK CENTRAL CONTROLLER”,PCT/CN2013/084282, 2013/9/26
+  17. G. Wang , Z. Sun and M. Lei , “METHOD AND APPARATUS FOR COVERAGE ENHANCEMENT IN WIRELESS COMMUNICATION SYSTEM”,PCT/CN2013/083758, 2013/9/18
+  18. G. Wang , Z. Sun and M. Lei , “METHOD AND APPARATUS FOR UPLINK DATA TRANSMISSION IN A WIRELESS COMMUNICATION SYSTEM”,PCT/CN2013/084214, 2013/9/25
+  19. D. Zhu , Z. Sun, J. Cao and M. Lei , CLUSTERING “METHOD AND APPARATUS FOR CROSS-SUBFRAME INTERFERENCE ELIMINATION AND TRAFFIC ADAPTATION AND COMMUNICATIONS MECHANISM BETWEEN BASEBAND UNITS”,PCT/CN2013/084288, 2013/9/25
+  20. H. Liu , Z. Sun , G. Wang , “METHOD AND APPARATUS FOR CHANNEL STATE INFORMATION MEASUREMENT”,PCT/CN2014/083924, 2014/8/7
+  21. Y. Zhang, D. Zhu, Z. Sun and M. Lei, “METHOD AND APPARATUS FOR PREDICTING PRECODING MATRIX IN MIMO SYSTEM”, PCT/CN2011/071410, 2011/2/28
+  22. G. Wang ,Y. Zhang, Z. Sun and M. Lei, “METHOD AND APPARATUS FOR MODIFYING CHANNEL QUALITY INDICATION”, PCT/CN2011/071408, 2011/2/28
+  23. YI Su , Y. Zhang , Z. Sun and M. Lei , “METHOD AND APPARATUS FOR INDICATING DOWNLINK CHANNEL MEASUREMENT AND METHOD AND APPARATUS PERFORMING DOWNLINK CHANNEL MEASUREMENT IN A RELAYING SYSTEM”, PCT/CN2011/078060, 2011/8/5
+  24. Q. Ge, G. Wang , Z. Sun and M. Lei , “METHOD AND APPARATUS FOR OUTER LOOP LINK ADAPTATION FOR A WIRELESS COMMUNICATION SYSTEM”, PCT/CN2012/073118, 2012/3/27
+  25. J. Jiang , G. Wang , Z. Sun and M. Lei , “METHODS AND APPARATUSES FOR DETERMINING TRANSMISSION POWER AND PROVIDING INFORMAIOTN FOR POWER DETERMINATION”, PCT/CN2012/081906, 2012/9/25
+  26. D. Zhu , Y. Zhang , Z. Sun , C. Li , G. Wang and M. Lei , “METHOD AND APPARATUS FOR DL/UL RESOURCE CONFIGURATION IN A TDD SYSTEM”,PCT/CN2013/070528	, 2013/1/16
+  27. C. Jiang, C. Li , Z. Sun , G. Wang , “METHODS AND DEVICES FOR TRANSMITTING/RECEIVING LONG TERM CHANNEL STATE INFORMATION IN WIRELESS COMMUNICATION NETWORKS”,PCT/CN2014/078445, 2014/5/26
+  28. S. Yi , J. Jiang , Z. Sun , G. Wang , “METHOD AND APPARATUS FOR MACRO-CELL ASSISTED INTERFERENCE COORDINATION IN LTE SMALL CELLS”,PCT/CN2014/076899, 2014/5/6
+  29. C. Jiang , C. Li , Z. Sun , G. Wang , “METHODS AND DEVICES FOR VERTICAL DOMAIN CHANNEL STATE INFORMATION TRANSMISSION/RECEPTION IN WIRELESS COMMUNICATION NETWORKS”,PCT/CN2014/078444, 2014/5/26
+  30. C. Jiang , H. Liu , Z. Sun , G. Wang , “METHOD AND APPARATUS FOR ANTENNA CALIBRATION IN TDD SYSTEMS”,PCT/CN2014/085524, 2014/8/29
+  31. H. Liu , J. Jiang , Z. Sun , C. Jiang , G. Wang , “METHOD AND APPARATUS FOR PERFORMING DATA TRANSMISSION”,PCT/CN2015/070452, 2015/1/9
+  32. H. Liu , J. Jiang , Z. Sun , C. Jiang , G. Wang , “METHOD AND APPARATUS FOR PERFORMING DATA TRANSMISSION”,PCT/CN2015/070450, 2015/1/9
+  33. J. Jiang , H. Liu , G. Wang , Z. Sun , C. Jiang , “METHOD AND APPARATUS FOR PERFORMING FRACTIONAL SUBFRAME TRANSMISSION”,PCT/CN2015/071898, 2015/1/1
+  34. J. Jiang , H. Liu , G. Wang , Z. Sun , C. Jiang , “METHOD AND APPARATUS FOR PERFORMING FRACTIONAL SUBFRAME TRANSMISSION”,PCT/CN2015/072144, 2015/2/1
+  35. J. Jiang , H. Liu , G. Wang , Z. Sun , C. Jiang , “METHOD AND APPARATUS FOR PERFORMING FRACTIONAL SUBFRAME TRANSMISSION”,PCT/CN2015/071899, 2015/2/1
+  36. C. Jiang , K. Gao , H. Liu , G. Wang , Z. Sun , J. Jiang , “METHOD AND APPARATUS FOR FACILITATING CHANNEL STATE INFORMATION OBTAINING”,PCT/CN2015/071921, 2015/1/1
+  37. J. Jiang , H. Liu , G. Wang , C. Jiang and Z. Sun , “METHOD AND DEVICES FOR SIGNALING TRANSMISSION IN UNLICENSED BAND”,PCT/CN2014/087797, 2014/9/30
+
+- 3GPP Contributions:
+  1. R4-133166, "Simulation results on ACLR for AAS co-existence Study" 3GPP RAN4 #68 
+  2. R4-135515, "Simulation results on in-band blocking for AAS co-existence study" 3GPP RAN4#68bis 
+  3. R1-133343, "Deployment scenarios and requirements for TDD – FDD joint operation" 3GPP RAN1#74 
+  4. R1-134253, "CA-based aspects for FDD-TDD joint operation" 3GPP RAN1#74bis 
+  5. R1-135258, "HARQ timing for TDD-FDD CA" 3GPP RAN1#75 
+  6. R1-140417, "Uplink Reference Signal Enhancement for Low Cost MTC" 3GPP RAN1#76 
+  7. R1-143935, "Uplink Reference Signal Enhancement for Low Cost MTC" 3GPP RAN1#78bis 
+  8. R1-143927, "36.213 CR0475 (Rel 12, F) Correction on timing relationship between PUSCH and PHICH for FDD-TDD CA", 3GPP RAN1#78bis 
+  9. R1-144861, "Coverage enhancement for PUSCH" 3GPP RAN1#79 
+  10. R1-150288, "Performance of Uplink frequency hopping for LTE Rel-13 MTC", 3GPP RAN1#80 
+  11. R1-150289, "Uplink Reference Signal Enhancement for MTC", 3GPP RAN1#80 
+  12. RP-150140, "Considerations of introducing possible additional TDD configuration(s) ", 3GPP RAN#67 
+  13. R1-151550, "Uplink Reference Signal Enhancement for Rel-13 low complexity MTC "，3GPP RAN1#80bis 
+  14. R1-152681, "Uplink Reference Signal Enhancement for Rel-13 low complexity MTC "，3GPP RAN1#81
+  15. RP-150605, "Coexistence evaluation results for intra-band adjacent LTE TDD operations using different TDD UL/DL configurations",3GPP RAN#68 
+  16. RP-150607, "Performance evaluation set 1 results for possible additional TDD configuration(s)",3GPP RAN#68 
+  17. RP-150608, "Performance evaluation set 2 results for possible additional TDD configuration(s)",3GPP RAN#68 
+  18. RP-150950, "Coexistence evaluation results for intra-band adjacent LTE TDD operations using different TDD UL/DL configurations",3GPP RAN#68 
+  19. R1-154210, "Uplink Reference Signal Enhancement for Rel-13 low complexity MTC "，3GPP RAN1#82    
+  20. R1-162426, “Consideration on the design of NR”,3GPP RAN1#84b
+  21. R1-162427, “Discussion on evaluation issues for new RAT”, 3GPP RAN1#84b
+  22. R1-162428, “Discussion on numerology and frame structure for NR”, 3GPP RAN1#84b
+  23. R1-164482，“Considerations on the design of frame structure for NR”, 3GPP RAN1#85
+  24. R1-164486,  “Subcarrier spacing and other parameters for numerology”, 3GPP RAN1#85
+  25. R1-166636,  “Proposals for forward compatibility”, 3GPP RAN1#86
+  26. R1-166635,  “TTI bundling for uplink coverage enhancement”, 3GPP RAN1#86
+  27. R4-166221,  “Simulation assumptions and preliminary results for NR co-existence study”, 3GPP RAN4#80

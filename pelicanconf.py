@@ -19,7 +19,7 @@ PLUGIN_PATHS = ["plugins", "plugins"]
 PLUGINS = ['org_emacs_reader','pelican-toc','sitemap']
 THEME = 'themes/elegant'
 # Appearance
-TYPOGRIFY = True
+TYPOGRIFY = False
 DEFAULT_PAGINATION = False
 DEFAULT_CATEGORY = 'Miscellaneous'
 USE_FOLDER_AS_CATEGORY = True

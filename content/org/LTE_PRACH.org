@@ -1,0 +1,199 @@
+#+TITLE: The PRACH in LTE
+#+DATE: 2017-01-09
+#+AUTHOR: Sun Zhennian
+#+EMAIL: sunzhennian@gmail.com
+#+TAGS: PRACH
+#+CATEGORY: LTE
+#+OPTIONS: toc:t num:t ^:nil
+
+
+* Why RACH ? (What is the functionality of RACH ?)
+
+In LTE, random access is used for several purposes, including:
+- for initial access when establishing a radio link (moving from RRC_IDLE to RRC_CONNECTED; see Chapter 8 for a discussion on different terminal states);
+- to re-establish a radio link after radio-link failure;
+- for handover when uplink synchronization needs to be established to the new cell;
+- to establish uplink synchronization if uplink or downlink data arrives when the terminal is in RRC_CONNECTED and the uplink is not synchronized;
+- for the purpose of positioning using positioning methods based on uplink measurements;
+- as a scheduling request if no dedicated scheduling-request resources have been configured on PUCCH.
+
+* When RACH Process occurs ?
+
+In LTE, RACH process happens in following situation (3GPP specification, 10.1.5 Random Access Procedure of 36.300)
+- Initial access from RRC_IDLE
+- RRC Connection Re-establishment procedure
+- Handover (Contention Based or Non Contetion Based)
+- DL data arrival during RRC_CONNECTED requiring random access procedure; E.g. when UL synchronisation status is "non-synchronised"
+- UL data arrival during RRC_CONNECTED requiring random access procedure; E.g. when UL synchronisation status is "non-synchronised" or there are no PUCCH resources for SR available.
+- For positioning purpose during RRC_CONNECTED requiring random access procedure; E.g. when timing advance is needed for UE positioning
+
+* Two types of RACH process : Contention-based and Contention-free
+A terminal may perform random access on its primary component carrier only. 5 Either a contention-based or a contention-free scheme can be used.
+Contention-based random access uses a four-step procedure, illustrated in [[Figure 1][Figure 1]], with the following steps:
+1) The transmission of a random-access preamble, allowing the eNodeB to estimate the transmission timing of the terminal. Uplink synchronization is necessary as the terminal otherwise cannot transmit any uplink data.
+2) The network transmits a timing advance command to adjust the terminal transmit timing, based on the timing estimate obtained in the first step. In addition to establishing uplink synchronization,the second step also assigns uplink resources to the terminal to be used in the third step in the random-access procedure.
+3) The transmission of the mobile-terminal identity to the network using the UL-SCH similar to normal scheduled data. The exact content of this signaling depends on the state of the terminal, in particular whether it is previously known to the network or not.
+4) The final step consists of transmission of a contention-resolution message from the network to the terminal on the DL-SCH. This step also resolves any contention due to multiple terminals trying to access the system using the same random-access resource.
+#+CAPTION: Overview of the random-access procedure
+#+NAME: Figure 1
+[[../images/overview_of_random_access_procedure.png]]
+
+Contention-free random access can only be used for re-establishing uplink synchronization upon downlink data arrival, handover, and positioning. Only the first two steps of the procedure above are used as there is no need for contention resolution in a contention-free scheme.
+
+
+Following is the PRACH signal transmitted in Time Domain. (You may think this looks different from what you expected. You might have expect to see Zadoff-Chu sequence but this does not look like a Zadoff-Chu sequence. The Zadoff-Chu sequence for PRACH is in Frequency Domain, but this is the time domain sequence. The PRACH Zadoff-Chu is transformed to the time domain sequence as shown below via a transformation.
+
+* How the information is encoded into PRACH (RACH Preamble) ?
+In LTE, all the information (data) after PRACH Preamble has its own binary structure meaning that they are translated into a certain data structure. However, the information in PRACH Preamble is represented by purely physical properties. The physical properties that forms the information in PRACH are as follows.
+1) PRACH Preamble transmission Timing (t_id)
+2) Location of PRACH transmission in frequency domain (f_id)
+3) Sequence of the whole I/Q data of PRACH signal (one example shown below)
+
+#+CAPTION:
+#+NAME: LTE PRACH example
+[[../images/LteToolbox_PRACH_Format3_01.png]]
+
+From item 1) and 2), RA_RNTI is deribed. From item 3), Preamble Index (RAPID) can be derived.
+
+* Exactly when and Where a UE transmit RACH ?
+To answer to this question, you need to refer to 3GPP specification TS36.211 - Table 5.7.1-2. This table would give you at which frame and subframe that UE is allowed to transmit a PRACH Preamble. As you see at this table, the prach preamble timing and prach preamble type is determined by PRACH Configuration Index. The, how PRACH Configuration Index is determined ? It is determined by SIB2 parameter prach-ConfigIndex.
+
+#+CAPTION:
+#+NAME: TS36.211 - Table 5.7.1-2
+[[../images/36_211_Table_5_7_1_2_PRACH.PNG]]
+
+It shows exactly when a UE is supposed to send RACH depending on a parameter called "PRACH Configuration Index".
+
+
+For example, if the UE is using "PRACH Configuration Idex 0", it should transmit the RACH only in EVEN number SFN(System Frame Number). Is this good enough answer ? Does this mean that this UE can transmit the RACH in any time within the specified the SFN ? The answer to this question is in "Sub Frame Number" colulmn of the table. It says "1" for "PRACH Configuration Idex 0". It means the UE is allowed to transmit RACH only at sub frame number 1 of every even SFN.
+
+
+Checking your understanding of the table, I will give you one question. With which "PRACH Configuration Idex", it would be the easiest for the Network to detect the RACH from UE ? and Why ?
+
+
+The answer would be 14, because UE can send the RACH in any SFN and any slots within the frame.
+
+
+In a big picture, you should know all the dimmensions in the following diagram. (The Red rectangle is PRACH signal).
+
+#+CAPTION:
+#+NAME: LTE PRACH Dimension
+[[../images/PRACH_Dimension.PNG]]
+
+The R_Slot is determined by PRACH Configuration Index and R_length is determined by Premable format. F_offset is dermined by the following equation when the preamble format is 0~3. n_RA_PRBoffset in this equation is specified by prach-FreqOffset in SIB2. (Refer to 36.211 5.7 Physical random access channel for the details )
+
+< FDD >
+
+$$n^{RA}_{PRB}=n^{RA}_{PRB offset}$$
+
+< TDD : Preamble format 0-3 >
+
+$$n^{RA}_{PRB}=\begin{cases} n^{RA}_{PRB offset}+6\lfloor{\frac{f_{RA}}{2}}\rfloor,&{if f_{RA} mod 2=0}\\N^{UL}_{RB}-6-n^{RA}_{PRB offset}-6\lfloor\frac{f_{RA}}{2}\rfloor, &\text{otherwise}\end{cases}$$
+
+< TDD : Preamble format 4 >
+$$n^{RA}_{PRB}=\begin{cases} 6f_{RA},&{if (n_f mod 2)(2-N_{SP})+t^{(1)}_{RA} mod 2=0}\\N^{UL}_{RB}-6(f_{RA}+1), &\text{otherwise}\end{cases}$$
+
+* What is preamble format?
+If you see the table 5.7.1-1 show above, you see the column titled as "Preamble Format". What is the preamble format ? It is defined as following diagram.
+
+You would see that the length of PRACH preamble varies depending on the preamble format. For example, the length of PRACH with preamble format 0 is (3186 + 24567) Samples. (As you know, one sample (Ts) is 1/30.72 (=0.03255) us. It is defined as 1/(15000 x 2048) seconds (=0.03255 us)  in 36.211 4 Frame structure).
+
+
+#+CAPTION:
+#+NAME: Preamble Format
+[[../images/36_211_Fig5_7_1_PreambleFormat.PNG]]
+
+
+* Why Multiple Preamble Format ?
+
+First try to figure out what is the difference among preamble format based on the table above (Table 5.7.1-1) ? For simplicity, let's think of only format 0,1,2,3.
+
+
+Let's look into T_SEQ (length of Sequence). You see format 0 and format 1 is made up of single copies of PRACH converted in time domain. Format 2 and 3 is made up of two copies of PRACH sequence concatenated. What would be the advantage that format 2,3 have over format 1,2. I think the longer T_SEQ would help decoding PRACH under noised condition because it provide longer correlation window to detect PRACH.
+
+
+Now let's look at T_CP part. you would notice format 2 and 3 has much longer T_CP comparing to format 0 and 2. Longer CP would give you better tolerance in fading environment and reducing ISI even in highly fading environment.
+
+
+Actually there is another important differences among each preamble format that is not explicitely shown in Table 5.7.1-1. It is guard time difference. How this guard time influence the cell size ?
+#+ATTR_HTML: :frame box
+|--------+--------+--------+--------+--------+----------+----------+----------+--------|
+|    <6> |    <6> |    <6> |    <6> |    <6> |      <8> |      <8> |      <8> | <6>    |
+|      / |     <> |     <> |     <> |     <> |       <> |       <> |       <> | <>     |
+|--------+--------+--------+--------+--------+----------+----------+----------+--------|
+| Preamble Format | T_CP(in Ts) | T_CP(in ms) | T_SEQ(in Ts) | T_SEQ(in ms) | Total Length(in ms) | Number of Subframes | Guard Time(in ms) | Cell Radius |
+|--------+--------+--------+--------+--------+----------+----------+----------+--------|
+|      0 |   3168 |  0.103 |  24576 |  0.800 |    0.903 |        1 |    0.097 | ~14km  |
+|--------+--------+--------+--------+--------+----------+----------+----------+--------|
+|      1 |  21024 |  0.684 |  24576 |  0.800 |    1.484 |        2 |    0.516 | ~75km  |
+|--------+--------+--------+--------+--------+----------+----------+----------+--------|
+|      2 |   6240 |  0.203 | 2X24576 |  1.600 |    1.803 |        2 |    0.197 | ~28km  |
+|--------+--------+--------+--------+--------+----------+----------+----------+--------|
+|      3 |  21024 |  0.684 | 2X24576 |  1.600 |    2.284 |        3 |    0.716 | ~108km |
+|--------+--------+--------+--------+--------+----------+----------+----------+--------|
+|      4 |    448 |  0.015 |   4096 |  0.133 |    0.148 |          |          |        |
+|--------+--------+--------+--------+--------+----------+----------+----------+--------|
+
+- Note 1 : T_CP (in ms) = T_CP(in Ts) x 0.03255 x 1/1000, where 0.03225 is one Ts in us, 1/1000 is used to convert the unit from 'us' to 'ms'
+- Note 2 : T_SEQ (in ms) = T_SEQ(in Ts) x 0.03255 x 1/1000, where 0.03225 is one Ts in us, 1/1000 is used to convert the unit from 'us' to 'ms'
+- Note 3 : Guard Time (in ms) = Number of Subframe - Total Length
+- Note 4 : Cell Radius is roughly the distance that the electromatic wave can travel during the guard time and devided by 2.In case of free space(in vacumm) it is roughly is 300 (km/ms) x Guard Time (ms) / 2.
+
+
+* How to determined which Preamble format to use ?
+
+How UE know which Preamble format it has to use when it generate PRACH and trnasmit ? It is determined by following table. As you see, PRACH Configuration Index determines the Preamble Format to be used. For example, if PRACH Configuration Index is 10 as shown in the following example, the preamble format 0 is used.
+
+The you may ask 'Who determines PRACH Configuration index ?'. The answer is 'eNB determines it via prach-Configindex IE in SIB2'.
+#+CAPTION:
+#+NAME:
+[[../images/LTE_PRACH_ConfigIndex_PreambleFormat_01.png]]
+
+* How does Network knows exactly when UE will transmit the RACH ?
+It is simple. Network knows when UE will send the RACH even before UE sends it because Network tells UE when the UE is supposed to transmit the RACH. (If UE fails to decode properly the network information about the RACH, Network will fail to detect it even though UE sends RACH).
+
+Following section will describe network informaton on RACH.
+
+Which RRC Message contains RACH Configuration ?
+
+It is in SIB2 and you can find the details in 3GPP 36.331.
+#+CAPTION:
+#+NAME:
+[[../images/RACH_SIB2_01.PNG]]
+
+#+CAPTION:
+#+NAME:
+[[../images/RACH_SIB2_02.PNG]]
+
+#+CAPTION:
+#+NAME:
+[[../images/RACH_SIB2_03.PNG]]
+
+* How many RA-Preambles can be used ?
+* How to Generate 64 PRACH Preamble Sequences ?
+* PRACH Preamble Signal Structure
+* How to generate RACH Signal ?
+** PRACH Sequence in Frequency Domain
+** PRACH Sequence in Time Domain
+* Exactly when and where Network transmit RACH Response
+* PRACH Parameters and it's Physical Meaning
+** prach-ConfigIndex
+** zeroCorrelationZoneConfig and Highspeedflag
+** prach-FreqOffset
+** rootSequenceIndex
+* RACH Procedure during Initial Registration - RACH Procedure Summary
+* How can we get RA RNTI ?
+* An Example of Full RACH Process
+* PRACH Retransmission
+* RACH Process Overview In Diagrams
+** RACH Procedure on Initial Registration
+**** Livenetwork Example of RACH process for Initial Attach
+** RACH Procedure on Handover - Contention Based
+** RACH Procedure on Handover - NonContention Based
+** RACH Procedure on DL Data Arrival when Out-of-Sync - Non Contention Based
+** RACH Procedure on DL Data Arrival when Out-of-Sync - Contention Based
+** RACH Procedure on UL Data Arrival when Out-of-Sync
+** RACH Procedure on RRC Connection Re-establishment when Out-of-Sync
+* PRACH Optimization in Cell Planning
+* PRACH RF Snapshot
+* 3GPP Standard for RACH Process
